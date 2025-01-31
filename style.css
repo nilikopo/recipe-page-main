@@ -1,0 +1,228 @@
+/* Young Serif 400, Outfit 400 600 700 */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Young+Serif&display=swap');
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --color-white: hsl(0, 0%, 100%);
+    --color-stone100: hsl(30, 54%, 90%);
+    --color-stone150: hsl(30, 18%, 87%);
+    --color-stone600: hsl(30, 10%, 34%);
+    --color-stone900: hsl(24, 5%, 18%);
+    --color-brown800: hsl(14, 45%, 36%);
+    --color-rose800: hsl(332, 51%, 32%);
+    --color-rose50: hsl(330, 100%, 98%);
+
+    --border-radius-card: 20px;
+    --border-radius-img: 10px;
+
+    --padding-main: 40px;
+    --padding-sections-vertical-pc: 36px;
+    --padding-normal-vertical-pc: 14px;
+    --padding-preparation: 32px;
+    --padding-preparation-h3: 16px;
+    --padding-li-inline-start-left-pc: 12px;
+    --padding-li-inline-start-right-pc: 24px;
+    --padding-h2: 16px;
+    --padding-inline-start-instructions: .75em;
+    --padding-ol-instructions: .75em;
+
+}
+ul{
+    list-style-type: none;
+}
+
+html{
+    font-family: "Outfit", sans-serif;
+    font-weight: 400;
+    color: var(--color-stone900);
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--color-stone100);
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: var(--padding-sections-vertical-pc);
+
+    width: 750px;
+
+    background-color: var(--color-white);
+    padding: var(--padding-main);
+    border-radius: var(--border-radius-card);
+
+    margin-top: 10rem;
+}
+.food-image{
+    background-image: url(./assets/images/image-omelette.jpeg);
+    background-position: center;
+    background-size: cover;
+
+    height: 300px;
+    width: 100%;
+
+    border-radius: var(--border-radius-img);
+}
+h1,h2,h3{
+    font-family: "Young Serif", sans-serif;
+}
+.main-title{
+    margin-bottom: var(--padding-normal-vertical-pc);
+    font-size: 2em;
+    font-weight: 400;
+}
+.main-title-description{
+    line-height: 150%;
+}
+.preparation-time-container{
+    background-color: var(--color-rose50);
+
+    width: auto ;
+
+    padding: var(--padding-preparation);
+    
+    border-radius: var(--border-radius-img);
+}
+.pt-title{
+    color: var(--color-rose800);
+
+    padding-bottom: var(--padding-preparation-h3);
+
+    font-weight: 600;
+}
+.item-bold{
+    font-weight: 700;
+
+    margin-right: .2rem;
+}
+.ul-item-style{
+    display: flex;
+    align-items: center;
+
+    line-height: 200%;
+}
+.ul-item-style::before{
+    display: inline-flex;
+    content: "";
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--color-rose800);
+    margin-left: var(--padding-li-inline-start-left-pc);
+    margin-right: var(--padding-li-inline-start-right-pc);
+}
+.title-main-style{
+    font-weight: 400;
+    color: var(--color-brown800);
+
+    padding-bottom: var(--padding-h2);
+}
+
+.ingridients-item{
+    background-color: var(--color-brown800);
+}
+
+.hr-common::after{
+    display: block;
+    content: "";
+    height: 4px;
+    background-color: var(--color-rose50);
+
+    margin-top: var(--padding-sections-vertical-pc);
+}
+.instructions-ol{
+    display: flex;
+    flex-direction: column;
+    
+    gap: var(--padding-ol-instructions);
+}
+.instructions-item{
+    margin-left: calc(var(--padding-li-inline-start-left-pc) * 1.75);
+    padding-inline-start: var(--padding-inline-start-instructions);
+    line-height: 150%;
+}
+.instructions-item::marker{
+    color: var(--color-brown800);
+    font-weight: 600;
+}
+.nutrition-description{
+    line-height: 150%;
+    margin-bottom: var(--padding-normal-vertical-pc);
+}
+.nutrition-ul{
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+}
+.nutrition-item{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    line-height: 150%;
+}
+.nutrition-left{
+    width: 100px;
+}
+.nutrition-right{
+    width: 100px;
+    color: var(--color-brown800);
+}
+/* should have done with ::after but bad with grid */
+/* TODO: do with grids and ::after someday */
+.hr-common-1{
+    height: 4px;
+    background-color: var(--color-rose50);
+    margin-block: var(--padding-normal-vertical-pc);
+}
+.section{
+    /* content overflows on media fix, took me 30 min to understand */
+    width: 100%;
+}
+@media (max-width: 1000px){
+    .card{
+        margin-top: 0;
+        border-radius: 0;
+        padding: 0; 
+
+        width: 100dvw;
+    }
+    .section{
+        margin-inline: var(--padding-main);
+        /* content overflows on media fix, took me 30 min to understand */
+        width: calc(100% - (2 * var(--padding-main)));
+    }
+    .nutrition-container{
+        margin-bottom: var(--padding-main);
+    }
+    .ul-item-style::before{
+        margin-left: calc(var(--padding-li-inline-start-left-pc) * .5);
+        margin-right: calc(var(--padding-li-inline-start-right-pc) * .5);
+    }
+    .preparation-time-container{
+        padding: calc(var(--padding-preparation) * .5);  
+    }
+    
+}
+@media(max-width: 450px){
+    .pt-ul{
+        font-size: 14px;
+    }
+    .ul-item-style::before{
+        margin-left: calc(var(--padding-li-inline-start-left-pc) * .15);
+        margin-right: calc(var(--padding-li-inline-start-right-pc) * .15);
+    }
+    .preparation-time-container{
+        padding: calc(var(--padding-preparation) * .25);  
+    }
+}
